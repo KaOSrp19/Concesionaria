@@ -9,6 +9,10 @@ public class Revision {
     //FK
     private Coche coche;
 
+    public Revision(){
+
+    }
+
     public Revision(String codigo, String filtro, String aceite, String frenos, Coche coche) {
         this.setCodigo(codigo);
         this.setFiltro(filtro);

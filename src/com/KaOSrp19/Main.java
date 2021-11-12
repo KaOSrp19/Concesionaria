@@ -1,5 +1,6 @@
 package com.KaOSrp19;
 
+import com.KaOSrp19.model.Cliente;
 import com.KaOSrp19.util.ConectorBD;
 
 import java.sql.Connection;
@@ -7,6 +8,7 @@ import java.sql.Connection;
 public class Main {
     public static void main(String[] args) {
         Connection connection = ConectorBD.getConnection();
+
 
     }
 }

@@ -10,6 +10,10 @@ public class Coche {
     //FK
     private Cliente cliente;
 
+    public Coche(){
+
+    }
+
     public Coche(String matricula, String marca, String modelo, String color, Double precio, Cliente cliente) {
         this.setMatricula(matricula);
         this.setMarca(marca);
