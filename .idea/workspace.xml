@@ -6,6 +6,7 @@
       <change afterPath="$PROJECT_DIR$/src/com/KaOSrp19/dao/CocheDao.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/com/KaOSrp19/dao/RevisionDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Concesionaria/com/KaOSrp19/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Concesionaria/com/KaOSrp19/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Concesionaria/com/KaOSrp19/model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Concesionaria/com/KaOSrp19/model/Cliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Concesionaria/com/KaOSrp19/model/Coche.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Concesionaria/com/KaOSrp19/model/Coche.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Concesionaria/com/KaOSrp19/model/Revision.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Concesionaria/com/KaOSrp19/model/Revision.class" afterDir="false" />
@@ -42,7 +43,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -100,5 +101,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

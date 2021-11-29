@@ -1,5 +1,6 @@
 package com.KaOSrp19.dao;
 
+import com.KaOSrp19.model.Cliente;
 import com.KaOSrp19.model.Coche;
 import com.KaOSrp19.model.Revision;
 import com.KaOSrp19.util.ConectorBD;
@@ -14,10 +15,11 @@ public class RevisionDao {
         connection = ConectorBD.getConnection();
     }
 
+    //CREAR REVION
     public void insertarCoche(Revision revision){
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("INSERT INTO revision (codigo,filtro,aceite,frenos) VALUES (?,?,?,?)");
+                    .prepareStatement("INSERT INTO revisiones (codigo,filtro,aceite,frenos) VALUES (?,?,?,?)");
 
             preparedStatement.setString(1,revision.getCodigo());
             preparedStatement.setString(2,revision.getFiltro());
@@ -33,10 +35,11 @@ public class RevisionDao {
 
     }
 
+    //EDITAR REVISIONES
     public void editarRevision(Revision revision){
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("UPDATE revision SET codigo=?,filtro=?,aceite=?,frenos=? WHERE codigo=?" );
+                    .prepareStatement("UPDATE revisiones SET codigo=?,filtro=?,aceite=?,frenos=? WHERE codigo=?" );
 
             preparedStatement.setString(1,revision.getCodigo());
             preparedStatement.setString(2,revision.getFiltro());
@@ -54,26 +57,28 @@ public class RevisionDao {
 
     }
 
-    public void eliminarRevision(String codigo){
+    //ELIMINAR REVISIONES  /*modificar*/
+    public void eliminarRevision(Revision revision){
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("DELETE FROM revision WHERE codigo=?" );
+                    .prepareStatement("DELETE FROM revisiones WHERE codigo=?" );
 
-            preparedStatement.setString(1,codigo);
+            preparedStatement.setString(1,revision.getCodigo());
             preparedStatement.executeUpdate();////
 
-            System.out.println(codigo +"eliminado");
+            System.out.println("Se elimino correctamente");
         }catch (SQLException e){
             System.out.println("Error al eliminar revision" + e);
         }
 
     }
 
+    //LISTAR REVISIONES
     public List<Revision> listaRevision(){
         List<Revision> listaRevision = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSetn = statement.executeQuery("SELECT * FROM revision");
+            ResultSet resultSetn = statement.executeQuery("SELECT * FROM revisiones");
             while (resultSetn.next()){
                 Revision revision= new Revision();
                 revision.setCodigo(resultSetn.getString("codigo"));
@@ -89,6 +94,36 @@ public class RevisionDao {
         }
 
         return listaRevision;
+
+    }
+
+    //BUSCAR REVISION POR CODIGO
+    public Revision buscarClientePorNif(String codigo){
+        Revision revision=null;
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("SELECT * FROM revisiones WHERE codigo=?" );
+
+            preparedStatement.setString(1, codigo);
+
+            ResultSet resultSet= preparedStatement.executeQuery();
+            if(resultSet.next()){
+
+                revision=new Revision();
+
+                revision.setCodigo(resultSet.getString("codigo"));
+                revision.setFiltro(resultSet.getString("filtro"));
+                revision.setAceite(resultSet.getString("aceite"));
+                revision.setFrenos(resultSet.getString("frenos"));
+
+
+            }
+
+        }catch (SQLException e){
+            System.out.println("Error al buscar revision " + e);
+        }
+
+        return revision;
 
     }
 }
